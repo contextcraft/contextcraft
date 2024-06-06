@@ -13,12 +13,17 @@ Following dataset is used to evalatute the approach
 ![ContextCraft](ContextCraftOverviewFinal.PNG)
 #  [ Probabilistic Token Positioning:](https://github.com/propaki/Automethod/tree/main/OptiPrompts) 
 Included in the "[OptiPrompts](https://github.com/propaki/Automethod/tree/main/OptiPrompts)" folder is a carefully curated corpus of prompts, comprised of text files, designed to enhance the performance of ChatGPT in accurately generating Java method names based on functional descriptions. These prompts are crafted to elicit precise and contextually relevant responses from the model, adhering to a well-designed template that aligns with the naming conventions and requirements specific to Java methods.
-
+# [Best Example Extraction](https://github.com/propaki/Automethod/tree/main/SFT-Training-Corpus):
+This project retrieves related examples from a pre-defined corpus based on a given functional description (𝑓𝑑) to aid in method name generation. Similarity between the query (𝑓𝑑) and corpus examples (𝑒) is measured by comparing their functional descriptions (𝐷(𝑒)).
+![Best Example Eq1](eq1.PNG)
+Similarity is calculated using cosine similarity on vectorized descriptions, utilizing BERT embeddings for state-of-the-art performance:
+![Best Example Eq2](eq2.PNG)
+The number of examples is limited to ten to comply with prompt length constraints in large language models.
 ![PTP Algorithm](PTP_algorithm.PNG)
 # [Pivot Word Identification](https://github.com/propaki/Automethod/tree/main/SFT-Training-Corpus):
 ![PTP Algorithm](PTP_algorithm.PNG)
-![PTP Eq1](eq1.PNG)
-![PTP Eq2](eq2.PNG)
+
+
 The [Chinese-SFT-Training-Corpus.JSONL](https://github.com/propaki/Automethod/tree/main/SFT-Training-Corpus/Chinese-SFT-Training-Corpus.JSON) and [English-SFT-Training-Corpus.JSONL](https://github.com/propaki/Automethod/tree/main/SFT-Training-Corpus/English-SFT-Training-Corpus.JSON)  files in the "[SFT-Training-Corpus](https://github.com/propaki/Automethod/tree/main/SFT-Training-Corpus)" folder are specifically tailored for fine-tuning the Large Language Model (LLM) to enhance its capability in generating method names from functional descriptions in Chinese and English. It contains a collection of high-quality conversation samples between two individuals. Each sample comprises a pair: a functional description and the corresponding method name, meticulously extracted through the Best-Example process. This corpus aims to improve the model's accuracy and fluency in handling Chinese language inputs, ensuring the generation of contextually appropriate and conventionally accurate method names.
 ![PWI Algorithm](PWI.PNG)
 # [LLM-based Feedback Mechanism:](https://github.com/propaki/Automethod/tree/main/Source-Code/RNN-Attn-Copy.ipynb)
