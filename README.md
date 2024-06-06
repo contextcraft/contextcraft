@@ -12,7 +12,7 @@ Following dataset is used to evalatute the approach
 # Approach 
 ![ContextCraft](ContextCraftOverviewFinal.PNG)
 # [Best Example Extraction](https://github.com/propaki/Automethod/tree/main/SFT-Training-Corpus):
-This project retrieves related examples from a pre-defined corpus based on a given functional description (𝑓𝑑) to aid in method name generation. Similarity between the query (𝑓𝑑) and corpus examples (𝑒) is measured by comparing their functional descriptions (𝐷(𝑒)).
+This module retrieves related examples from a dataset based on a given functional description (𝑓𝑑) to aid in method name generation. Similarity between the query (𝑓𝑑) and corpus examples (𝑒) is measured by comparing their functional descriptions (𝐷(𝑒)):
 ![Best Example Eq1](eq1.PNG)
 
 Similarity is calculated using cosine similarity on vectorized descriptions, utilizing BERT embeddings for state-of-the-art performance:
