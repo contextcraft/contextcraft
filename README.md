@@ -11,14 +11,14 @@ Following dataset is used to evalatute the approach
 
 # Approach 
 ![ContextCraft](ContextCraftOverviewFinal.PNG)
-# [Best Example Extraction](https://github.com/propaki/Automethod/tree/main/SFT-Training-Corpus):
+# Best Example Extraction:
 This module retrieves related examples from a dataset based on a given functional description (𝑓𝑑) to aid in method name generation. Similarity between the query (𝑓𝑑) and corpus examples (𝑒) is measured by comparing their functional descriptions (𝐷(𝑒)):
 ![Best Example Eq1](eq1.PNG)
 
 Similarity is calculated using cosine similarity on vectorized descriptions, utilizing BERT embeddings for state-of-the-art performance:
 ![Best Example Eq2](eq2.PNG)
 
-The number of examples is limited to ten to comply with prompt length constraints in large language models.
+The number of examples is limited to ten to comply with prompt length constraints in large language models.[Source Code](https://github.com/contextcraft/contextcraft/blob/main/Source_Code/Embedding_Vector_DataBase.ipynb)
 #  [ Probabilistic Token Positioning:](https://github.com/propaki/Automethod/tree/main/OptiPrompts) 
 Included in the "[OptiPrompts](https://github.com/propaki/Automethod/tree/main/OptiPrompts)" folder is a carefully curated corpus of prompts, comprised of text files, designed to enhance the performance of ChatGPT in accurately generating Java method names based on functional descriptions. These prompts are crafted to elicit precise and contextually relevant responses from the model, adhering to a well-designed template that aligns with the naming conventions and requirements specific to Java methods.
 ![PTP Algorithm](PTP_algorithm.PNG)
