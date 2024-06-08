@@ -22,22 +22,22 @@ The number of examples is limited to ten to comply with prompt length constraint
 #  [ Probabilistic Token Positioning:](https://github.com/propaki/Automethod/tree/main/OptiPrompts) 
 ## Overview
 
-### Goal
-Predict token positions in method names based on their appearance in functional descriptions.
+Predict token positions in method names based on their appearance in functional descriptions. [Source Code](https://github.com/contextcraft/contextcraft/blob/main/Source_Code/PTPandPWI.ipynb)
 
-### Concept
+## Concept
 Compute the likelihood of tokens from descriptions appearing in various positions within method names (prefix, infix, suffix).
 
-### Process
+## Process
 
-#### Decomposition
+### Decomposition
 - Split functional descriptions by whitespace and punctuation.
 - Split method names by camelCase and underscore conventions.
 
-#### Probability Calculation
+### Probability Calculation
 - **Prefix Probability (𝑃prefix)**: Likelihood of token 𝑡 appearing as the first token in method names.
   ```math
   𝑃prefix(𝑡) = \frac{\text{Occurrences of 𝑡 as prefixes of names}}{\text{Occurrences of 𝑡 in descriptions}}
+### Algorithm
 ![PTP Algorithm](PTP_algorithm.PNG)
 # [Pivot Word Identification](https://github.com/propaki/Automethod/tree/main/SFT-Training-Corpus):
 ![PTP Algorithm](PTP_algorithm.PNG)
