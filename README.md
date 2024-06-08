@@ -143,20 +143,44 @@ With the outputs from the preceding sections, we have collected all the informat
 ### Example Prompt
 Here’s how an example prompt is structured:
 ![PWI Algorithm](PromptTemplate_LMS.PNG)
-# Results 
-
-# mNamer
+# Evaluation
+##  Improving the State of the Art
+We applied each of the evaluated approaches to the same dataset independently. The evaluation results are presented
+in Table 2. The first column presents the evaluated approaches,
+whereas columns 2-4 present the performance metrics.
+![Table 2](Evaluation/Table1.PNG)
+From Table 2 we can conclude that the proposed approach substantially improves the state of the art.
+## Effect of Individual Components
+We disabled one component at a time and repeated the evaluation. 
+![Table 3 and 4](Evaluation/Table3-4.PNG)
+![Table 5](Evaluation/Table5.PNG)
+By comparing the results against those of the default setting (where all components were enabled), we may quantitatively
+reveal the effect of the given component. Notably, the proposed approach is composed of three key components, i.e., probabilistic token positioning, pivot word identification, and LLM-based feedback mechanism. 
+## Working with Various LLMs
+We replaced the underling large language model (i.e., ChatGPT-4o) with other large language models, and re-evaluated the approach. The purpose of the evaluation is two fold. On one side, the evaluation would reveal whether the proposed approach remains effective when the underling LLM is related with other LLMs.
+![Table 5](Evaluation/Table6.PNG)
+We conclude based on the preceding discussion that the proposed approach has good generalization ability and it works well with various LLMs.
+## Working with Diffferent Length of functional description and Method 
+The table lists the performance of five models—ChatGPT-3.5, ChatGPT-4, ChatGPT-4o, Gemini, and Llama3—across different lengths of functional descriptions, ranging from 0 to 5 tokens up to 40+ tokens.
+![Table 5](Evaluation/Table7.PNG)
+![Performance over description length](Evaluation/Result_Graphs.png)
+### Observations
+1. ChatGPT-4 consistently performs well across shorter functional descriptions (0-13 tokens) with high exact match percentages and semantic similarity scores.
+2. Gemini shows strong performance in longer functional descriptions (18+ tokens) with notable exact match rates and semantic similarity indexes.
+3. Llama3 tends to have the lowest edit distances in several categories, indicating efficient generation with fewer modifications required.
+4. ChatGPT-4o has competitive performance, especially in maintaining low edit distances, making it efficient in closer matches even when not leading in EM or SSI.
+### Correlation Coefficient
+![CC](Evaluation/Method_Description_Length.png)
+1. **CC1**: Description Length vs EM: Measures the correlation between Description Length and EM (Error Metric). Value: 1.000 (perfect positive correlation).
+2. **CC2**: Description Length vs SSI: Measures the correlation between Description Length and SSI (System Similarity Index). Value: 0.805 (strong positive correlation).
+3. **CC3**: Description Length vs ED: Measures the correlation between Description Length and ED (Error Detection). Value: -0.933 (strong negative correlation).
+4. **CC4**: Method Length vs EM: Measures the correlation between Method Length and EM. Value: 1.000 (perfect positive correlation).
+5. **CC5**: Method Length vs SSI: Measures the correlation between Method Length and SSI. Value: 0.673 (moderate positive correlation).
+6. **CC6**: Method Length vs ED: Measures the correlation between Method Length and ED. Value: -0.971 (very strong negative correlation).
+# ContextCraft
 
 This snippet gives a clear, step-by-step guide for users to replicate the study, ensuring they understand how to set up their environment correctly. Make sure to include any additional specific instructions or prerequisites needed directly in your README or linked documentation to assist users further.
-git clone https://github.com/propaki/Automethod.git
+git clone https://github.com/contextcraft/contextcraft.git
 
-fine-tuned ready to chat ChatGPT extention availabe at [Mnamer](https://chat.openai.com/g/g-T58v7ELEM-mnamer)
-The source code is the centerpiece of this repository, showcasing the application of BERT-based semantic model for both Semantic Driven Preprocessing and BERT-based RLHF in Postprocessing for LLMs to improve its method naming capabilities. This model represents a significant advancement in the field of automated method naming.
 
-Getting Started
-To get started with mNamer:
-Install the required dependencies: pip install -r requirements.txt
-Follow the instructions in the usage_instructions.md file for detailed steps on how to train and evaluate the models using the provided datasets and prompts.
-Contribution
-Contributions to LLM-MethodNamer are welcome. If you have suggestions for improvement or want to report bugs, please open an issue or submit a pull request.
 
