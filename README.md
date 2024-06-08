@@ -22,8 +22,6 @@ This directory contains the dataset files used for training, validation, and tes
 
 This directory holds evaluation results and metrics used to assess the performance of the models.
 
-- **`Evaluation/Table 3-4.PNG`**: An image showing tables used for evaluating model performance over description lengths.
-
 ### `Source_Code`
 
 This directory includes various Jupyter notebooks that implement the core functionalities of the project.
