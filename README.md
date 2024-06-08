@@ -5,9 +5,9 @@
 ContextCraft is an automated algorithm to generating context-rich prompts for LLMs that generate the expected method names according to the prompts. For a given query (functional description), it retrieves a few best examples whose functional descriptions have
 the greatest similarity with the query. From the examples, it identifies tokens that are likely to appear in the final method name as well as their likely positions, picks up pivot words that are semantically related to tokens in the according method names, and specifies
 the evaluation results of the LLM on the selected examples. All such outputs (tokens with probabilities and position information, pivot words accompanied by associated name tokens and similarity scores, and evaluation results) together with the query and the selected examples are then filled in a predefined prompt template, resulting in a context-rich prompt..
-# Datasets:
+# Dataset:
 Following dataset is used to evalatute the approach
-- [English Dataset:](https://github.com/propaki/Automethod/tree/main/EnglishDataset) Method Names with English Functional Descriptions (Dataset of Baseline).
+- [English Dataset:](https://github.com/contextcraft/contextcraft/tree/main/Dataset) Method Names with English Functional Descriptions (Dataset of Baseline).
 
 # Approach 
 ![ContextCraft](ContextCraftOverviewFinal.PNG)
