@@ -19,7 +19,7 @@ Similarity is calculated using cosine similarity on vectorized descriptions, uti
 ![Best Example Eq2](eq2.PNG)
 
 The number of examples is limited to ten to comply with prompt length constraints in large language models.[Source Code](https://github.com/contextcraft/contextcraft/blob/main/Source_Code/Embedding_Vector_DataBase.ipynb)
-#  [ Probabilistic Token Positioning:](https://github.com/propaki/Automethod/tree/main/OptiPrompts) 
+#  [ Probabilistic Token Positioning:]() 
 ## Overview
 
 Predict token positions in method names based on their appearance in functional descriptions. [Source Code](https://github.com/contextcraft/contextcraft/blob/main/Source_Code/PTPandPWI.ipynb)
@@ -40,10 +40,58 @@ Compute the likelihood of tokens from descriptions appearing in various position
 ### Algorithm
 ![PTP Algorithm](PTP_algorithm.PNG)
 # [Pivot Word Identification](https://github.com/propaki/Automethod/tree/main/SFT-Training-Corpus):
-![PTP Algorithm](PTP_algorithm.PNG)
+## Description
+Pivot Word Identification (PWI) is a process designed to enhance the generation of method names from functional descriptions. While directly copying tokens from functional descriptions to method names is one approach, PWI identifies semantically similar words (pivot words) that can inform method name generation even if they aren't directly copied. These pivot words are added to the prompt to improve the relevance and accuracy of the generated method names.
 
+## Steps in Pivot Word Identification
 
-The [Chinese-SFT-Training-Corpus.JSONL](https://github.com/propaki/Automethod/tree/main/SFT-Training-Corpus/Chinese-SFT-Training-Corpus.JSON) and [English-SFT-Training-Corpus.JSONL](https://github.com/propaki/Automethod/tree/main/SFT-Training-Corpus/English-SFT-Training-Corpus.JSON)  files in the "[SFT-Training-Corpus](https://github.com/propaki/Automethod/tree/main/SFT-Training-Corpus)" folder are specifically tailored for fine-tuning the Large Language Model (LLM) to enhance its capability in generating method names from functional descriptions in Chinese and English. It contains a collection of high-quality conversation samples between two individuals. Each sample comprises a pair: a functional description and the corresponding method name, meticulously extracted through the Best-Example process. This corpus aims to improve the model's accuracy and fluency in handling Chinese language inputs, ensuring the generation of contextually appropriate and conventionally accurate method names.
+### 1. Initialization
+
+- **Extract Tokens**: Extract tokens from both the functional description and the method name.
+- **Setup**: Initialize an empty set to store identified pivot words.
+
+### 2. Iterate Through Method Name Tokens
+
+- **Compare Tokens**: For each token in the method name, identify tokens in the functional description that are semantically similar.
+- **Compute Similarity**: Use cosine similarity of BERT embeddings to measure semantic similarity between tokens.
+- **Identify Pivot Words**: If a token from the functional description has a similarity score above a predefined threshold and is the highest compared to others, mark it as a pivot word.
+
+### 3. Record Pivot Words
+
+- **Collect Data**: Record each identified pivot word along with the associated method name token and their similarity score.
+
+### 4. Remove Duplicates
+
+- **Ensure Uniqueness**: Ensure that the pivot words list contains unique entries by retaining only the instance with the greatest similarity score for each word.
+
+### 5. Return Results
+
+- **Output**: Return the final list of pivot words, including their corresponding method name tokens and similarity scores.
+
+## Outcome
+
+The PWI process results in a list of pivot words from the functional description that, while not directly part of the method name, are semantically related and useful for generating the method name. This technique enhances the precision and contextual relevance of method name generation in automated systems.
+
+## Requirements
+
+- **Natural Language Processing Tools**: Tokenizers and vector similarity measures.
+- **BERT Embeddings**: To compute semantic similarity between tokens.
+
+## References
+
+- **BERT**: [BERT: Pre-training of Deep Bidirectional Transformers for Language Understanding](https://arxiv.org/abs/1810.04805)
+
+## Example Usage
+
+Below is a conceptual outline for using PWI in your project. This is not a full code implementation but illustrates the high-level steps:
+
+1. **Prepare Functional Descriptions and Method Names**: Extract tokens from your functional descriptions and corresponding method names.
+2. **Compute Similarities**: Use BERT embeddings to compute cosine similarity between tokens.
+3. **Identify and Record Pivot Words**: Determine pivot words based on similarity scores and store them.
+4. **Remove Duplicates**: Ensure pivot words list is unique by removing duplicates.
+5. **Utilize Pivot Words**: Use the identified pivot words to enhance your method name generation process.
+
+For a more detailed implementation, refer to the main code in the repository.
 ![PWI Algorithm](PWI.PNG)
 # [LLM-based Feedback Mechanism:](https://github.com/propaki/Automethod/tree/main/Source-Code/RNN-Attn-Copy.ipynb)
 We meticulously reproduced and implemented the baseline model in "[Source-Code](https://github.com/propaki/Automethod/tree/main/Source-Code)", which is a [RNN-Attn-Copy](https://github.com/propaki/Automethod/tree/main/Source-Code/RNN-Attn-Copy.ipynb) equipped with both attention and copying mechanisms. This advanced architecture was chosen as our benchmark for assessing the performance of alternative models due to its proven prowess in sequence-to-sequence translation tasks and its exceptional ability to grasp contextual nuances within sequences.
