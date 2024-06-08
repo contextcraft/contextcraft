@@ -20,7 +20,24 @@ Similarity is calculated using cosine similarity on vectorized descriptions, uti
 
 The number of examples is limited to ten to comply with prompt length constraints in large language models.[Source Code](https://github.com/contextcraft/contextcraft/blob/main/Source_Code/Embedding_Vector_DataBase.ipynb)
 #  [ Probabilistic Token Positioning:](https://github.com/propaki/Automethod/tree/main/OptiPrompts) 
-Included in the "[OptiPrompts](https://github.com/propaki/Automethod/tree/main/OptiPrompts)" folder is a carefully curated corpus of prompts, comprised of text files, designed to enhance the performance of ChatGPT in accurately generating Java method names based on functional descriptions. These prompts are crafted to elicit precise and contextually relevant responses from the model, adhering to a well-designed template that aligns with the naming conventions and requirements specific to Java methods.
+## Overview
+
+### Goal
+Predict token positions in method names based on their appearance in functional descriptions.
+
+### Concept
+Compute the likelihood of tokens from descriptions appearing in various positions within method names (prefix, infix, suffix).
+
+### Process
+
+#### Decomposition
+- Split functional descriptions by whitespace and punctuation.
+- Split method names by camelCase and underscore conventions.
+
+#### Probability Calculation
+- **Prefix Probability (𝑃prefix)**: Likelihood of token 𝑡 appearing as the first token in method names.
+  ```math
+  𝑃prefix(𝑡) = \frac{\text{Occurrences of 𝑡 as prefixes of names}}{\text{Occurrences of 𝑡 in descriptions}}
 ![PTP Algorithm](PTP_algorithm.PNG)
 # [Pivot Word Identification](https://github.com/propaki/Automethod/tree/main/SFT-Training-Corpus):
 ![PTP Algorithm](PTP_algorithm.PNG)
