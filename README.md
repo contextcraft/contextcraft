@@ -25,7 +25,7 @@ This directory holds evaluation results and metrics used to assess the performan
 # `Source_Code`
 
 This directory includes various Jupyter notebooks and .py folder of context craft  that implement the core functionalities of the project.
-# Description of Implementations
+# Class Hierarchy
 ![Directory](classes.PNG)
 ### ContextCraft
 
