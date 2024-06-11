@@ -25,7 +25,7 @@ This directory holds evaluation results and metrics used to assess the performan
 
 This directory includes various Jupyter notebooks and .py folder of context craft  that implement the core functionalities of the project.
 # Description of Implementations
-![Directory](Directory.PNG)
+![Directory](classes.PNG)
 ### ContextCraft
 
 **Purpose:** Orchestrates the use of ProbabilisticTokenPositioning, PivotWordIdentification, LLMBasedFeedback, and BestExample to analyze functional descriptions and method names from a CSV file. Generates formatted example descriptions and finds top similar examples based on semantic similarity.
