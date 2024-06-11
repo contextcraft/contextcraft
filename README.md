@@ -1,4 +1,4 @@
-![Banner](ContextCraft.png)
+![Banner](ContextCraft.PNG)
 # Replication package for paper : "Automated Generation of Context-Rich Prompts for LLM-based Method Name Suggestion"
 
 # ContextCraft:
