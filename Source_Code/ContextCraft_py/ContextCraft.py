@@ -1,28 +1,44 @@
 import pandas as pd
+import numpy as np
 from ProbabilisticTokenPositioning import ProbabilisticTokenPositioning
 from PivotWordIdentification import PivotWordIdentification
 from LLMBasedFeedback import LLMBasedFeedback
 from BestExample import BestExample
 
 class ContextCraft:
-    def __init__(self, csv_file_path, api_client):
-        self.df = pd.read_csv(csv_file_path)
+    def __init__(self, train_txt_path, test_txt_path, api_client):
+        # Load the text files into DataFrames
+        self.train_df = self.load_txt_file(train_txt_path)
+        self.test_df = self.load_txt_file(test_txt_path)
+        
+        # Initialize components
         self.prob_token_positioning = ProbabilisticTokenPositioning()
         self.pivot_word_id = PivotWordIdentification()
-        self.llm_feedback = LLMBasedFeedback(api_client)
-        self.best_example = BestExample(csv_file_path)
+        self.llm_feedback = api_client
+        self.best_example = BestExample(self.train_df)
         self.probability_df = None
 
-    def process_csv_file(self):
-        """Process the CSV file using the ProbabilisticTokenPositioning, PivotWordIdentification, and LLMBasedFeedback classes."""
+    def load_txt_file(self, txt_file_path):
+        """Load a .txt file and create a DataFrame with 'Functional Description' and 'Method Name'."""
+        data = []
+        with open(txt_file_path, 'r') as file:
+            for line in file:
+                parts = line.strip().split('_')
+                if len(parts) == 2:
+                    data.append({'Functional Description': parts[0], 'Method Name': parts[1]})
+        return pd.DataFrame(data)
+    
+    def process_train_file(self):
+        """Process the training text file using various components."""
         # Calculate position probabilities
-        position_probabilities = self.prob_token_positioning.calculate_position_probabilities(self.df)
+        position_probabilities = self.prob_token_positioning.calculate_position_probabilities(self.train_df)
         self.probability_df = self.prob_token_positioning.create_probability_df(position_probabilities)
 
-        # Process each row in the DataFrame
-        self.df['Example Description'] = ''
+        # Add a new column for the example description
+        self.train_df['Example Description'] = ''
 
-        for index, row in self.df.iterrows():
+        # Process each row in the DataFrame
+        for index, row in self.train_df.iterrows():
             func_desc = row['Functional Description']
             method_name = row['Method Name']
 
@@ -42,10 +58,10 @@ class ContextCraft:
             example_desc = self.format_example_description(
                 func_desc, method_name, prefix, infix, suffix, pivot_words_str, feedback
             )
-            self.df.at[index, 'Example Description'] = example_desc
+            self.train_df.at[index, 'Example Description'] = example_desc
 
         # Save processed DataFrame to a new CSV file
-        self.df.to_csv('processed_data.csv', index=False)
+        self.train_df.to_csv('processed_train_data.csv', index=False)
 
     def get_token_positions(self, tokens):
         """Determine the most likely prefix, infix, and suffix for tokens."""
@@ -81,9 +97,10 @@ class ContextCraft:
 
     def format_example_description(self, func_desc, method_name, prefix, infix, suffix, pivot_words, feedback):
         """Format the example description according to the specified style."""
-        prefix_str = f"Infix: ('{infix[0]}', Probability: {infix[1] * 100:.2f}%)" if infix[0] else ""
+        prefix_str = f"Prefix: ('{prefix[0]}', Probability: {prefix[1] * 100:.2f}%)" if prefix[0] else ""
+        infix_str = f"Infix: ('{infix[0]}', Probability: {infix[1] * 100:.2f}%)" if infix[0] else ""
         suffix_str = f"Suffix: ('{suffix[0]}', Probability: {suffix[1] * 100:.2f}%)" if suffix[0] else ""
-        context = f"In this example, the most likely word are: {prefix_str} {suffix_str}."
+        context = f"In this example, the most likely words are: {prefix_str} {infix_str} {suffix_str}."
         return (
             f"Functional Description: \"{func_desc}\"\n"
             f"Method Name: '{method_name}'\n"
@@ -92,6 +109,23 @@ class ContextCraft:
             f"• The semantic similarity between tokens of description and method name: {pivot_words}.\n"
             f"• {feedback}"
         )
+
+    def process_test_file(self):
+        """Process each functional description in the test file and find similar examples."""
+        # Initialize results DataFrame
+        results = self.test_df.copy()
+        results['Example Description'] = ''
+
+        for index, row in self.test_df.iterrows():
+            input_description = row['Functional Description']
+            similar_examples = self.find_similar_examples(input_description)
+            
+            # Combine similar example descriptions into a single string
+            example_descs = "\n".join(similar_examples['Example Description'].tolist())
+            results.at[index, 'Example Description'] = example_descs
+
+        # Save processed test results to a new CSV file
+        results.to_csv('processed_test_data.csv', index=False)
 
     def find_similar_examples(self, input_description):
         """Find the top 10 similar functional descriptions."""
@@ -127,24 +161,19 @@ class ContextCraft:
 
 # Example Usage
 if __name__ == "__main__":
-    # Path to the CSV file containing functional descriptions and method names
-    csv_file_path = 'path_to_file.csv'  # Replace with CSV file path
-    
-    
-    api_client = LLMAPIClient()
-    
-    # Create an instance of ContextCraft with the CSV file and the LLM API client
-    context_craft = ContextCraft(csv_file_path, api_client)
-    
-    # Process the CSV file to generate and save results
-    context_craft.process_csv_file()
+    # Paths to the training and test text files
+    train_txt_path = 'Dataset/java_train.txt'  # Path to training file
+    test_txt_path = 'Dataset/java_test.txt'  # Path to test file
 
-    # Input functional description for comparison
-    input_description = "retrieve the status of this object"  # input description
+    # Create an instance of LLMAPIClient with your OpenAI API key
+    api_key = 'your_openai_api_key_here'  # Replace it with your OpenAI API key
+    api_client = LLMAPIClient(api_key)
 
-    # Find and process the top 10 similar functional descriptions
-    similar_examples = context_craft.find_similar_examples(input_description)
-    
-    # Print the results
-    print(similar_examples['Example Description'].to_string(index=False))
+    # Create an instance of ContextCraft with the text files and the LLM API client
+    context_craft = ContextCraft(train_txt_path, test_txt_path, api_client)
 
+    # Process the training text file to generate and save results
+    context_craft.process_train_file()
+
+    # Process the test text file to generate and save results
+    context_craft.process_test_file()
