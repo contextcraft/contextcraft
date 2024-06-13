@@ -113,6 +113,25 @@ This hierarchy and description provide a detailed overview of the roles and resp
 
 This snippet gives a clear, step-by-step guide for users to replicate the study, ensuring they understand how to set up their environment correctly. Make sure to include any additional specific instructions or prerequisites needed directly in your README or linked documentation to assist users further.
 git clone https://github.com/contextcraft/contextcraft.git
+```markdown
+## **Usage Example**
+
+Here's an example of using ContextCraft:
+
+```python
+from contextcraft import ContextCraft
+
+# Initialize with the path to CSV and LLM API client
+context_craft = ContextCraft('data/functional_descriptions.csv', api_client)
+
+# Process the CSV file
+context_craft.process_csv_file()
+
+# Find similar examples along with prefixes, infixes,suffixes, pivot words and LLM-based suggestions for a given description
+context_rich_prompt = context_craft.find_similar_examples('example functional description')
+
+# Output the similar examples
+print(context_rich_prompt)
 
 
 
