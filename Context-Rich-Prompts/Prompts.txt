@@ -1,0 +1,62 @@
+Best Examples:
+Example 1:
+Functional Description: "assigns the value of the specified object to this reference"
+Method Name: setReferenceValue
+Context:
+In this example, the most likely words are: Prefix ('assigns', Probability: 0.567), Infix ('value', Probability: 0.721), Suffix ('reference', Probability: 0.833). The semantic similarity between tokens of description and method name: 'set': 'assigns' (0.654), 'Reference': 'reference' (0.721), 'Value': 'value' (0.833). The predicted method name by base LLM: assignObjectValue which has an edit distance score: 05 as compared to the actual method name: setReferenceValue.
+
+Example 2:
+Functional Description: "updates the stored object to point to the new instance"
+Method Name: updateObjectReference
+Context:
+In this example, the most likely words are: Prefix ('updates', Probability: 0.769), Infix ('object', Probability: 0.915), Suffix ('instance', Probability: 0.721). The semantic similarity between tokens of description and method name: 'update': 'updates' (0.769), 'object': 'object' (0.915), 'Reference': 'reference' (0.721). The predicted method name by base LLM: updateObjectPointer which has an edit distance score: 10 as compared to the actual method name: updateObjectReference.
+
+Example 3:
+Functional Description: "sets the current reference to the provided object"
+Method Name: setCurrentReference
+Context:
+In this example, the most likely words are: Prefix ('sets', Probability: 0.850), Infix ('current', Probability: 0.895), Suffix ('reference', Probability: 0.721). The semantic similarity between tokens of description and method name: 'set': 'sets' (0.850), 'current': 'current' (0.895), 'Reference': 'reference' (0.721). The predicted method name by base LLM: setReferenceToObject which has an edit distance score: 12 as compared to the actual method name: setCurrentReference.
+
+Example 4:
+Functional Description: "reassigns the reference to the given object instance"
+Method Name: reassignReference
+Context:
+In this example, the most likely words are: Prefix ('reassigns', Probability: 0.785), Infix ('reference', Probability: 0.721), Suffix ('instance', Probability: 0.745). The semantic similarity between tokens of description and method name: 'reassign': 'reassigns' (0.785), 'Reference': 'reference' (0.721). The predicted method name by base LLM: reassignObjectReference which has an edit distance score: 05 as compared to the actual method name: reassignReference.
+
+Example 5:
+Functional Description: "modifies the reference to the new object value"
+Method Name: modifyReference
+Context:
+In this example, the most likely words are: Prefix ('modifies', Probability: 0.769), Infix ('reference', Probability: 0.721), Suffix ('value', Probability: 0.833). The semantic similarity between tokens of description and method name: 'modify': 'modifies' (0.769), 'Reference': 'reference' (0.721), 'Value': 'value' (0.833). The predicted method name by base LLM: changeReferenceValue which has an edit distance score: 08 as compared to the actual method name: modifyReference.
+
+Example 6:
+Functional Description: "changes the reference type to point to the new object"
+Method Name: changeReferenceType
+Context:
+In this example, the most likely words are: Prefix ('changes', Probability: 0.769), Infix ('reference', Probability: 0.721), Suffix ('type', Probability: 0.695). The semantic similarity between tokens of description and method name: 'change': 'changes' (0.769), 'Reference': 'reference' (0.721), 'Type': 'type' (0.695). The predicted method name by base LLM: updateReferenceType which has an edit distance score: 05 as compared to the actual method name: changeReferenceType.
+
+Example 7:
+Functional Description: "sets the value of this object to the specified instance"
+Method Name: setValueInstance
+Context:
+In this example, the most likely words are: Prefix ('sets', Probability: 0.850), Infix ('value', Probability: 0.833), Suffix ('instance', Probability: 0.745). The semantic similarity between tokens of description and method name: 'set': 'sets' (0.850), 'Value': 'value' (0.833), 'Instance': 'instance' (0.745). The predicted method name by base LLM: setInstanceValue which has an edit distance score: 03 as compared to the actual method name: setValueInstance.
+
+Example 8:
+Functional Description: "updates the reference to point to the given object"
+Method Name: updateReference
+Context:
+In this example, the most likely words are: Prefix ('updates', Probability: 0.769), Infix ('reference', Probability: 0.721), Suffix ('object', Probability: 0.915). The semantic similarity between tokens of description and method name: 'update': 'updates' (0.769), 'Reference': 'reference' (0.721). The predicted method name by base LLM: modifyReference which has an edit distance score: 05 as compared to the actual method name: updateReference.
+
+Example 9:
+Functional Description: "assigns the provided instance to this reference"
+Method Name: assignInstance
+Context:
+In this example, the most likely words are: Prefix ('assigns', Probability: 0.785), Infix ('instance', Probability: 0.745), Suffix ('reference', Probability: 0.721). The semantic similarity between tokens of description and method name: 'assign': 'assigns' (0.785), 'Instance': 'instance' (0.745). The predicted method name by base LLM: assignReferenceInstance which has an edit distance score: 05 as compared to the actual method name: assignInstance.
+
+Example 10:
+Functional Description: "sets the current object to reference the new value"
+Method Name: setObjectReference
+Context:
+In this example, the most likely words are: Prefix ('sets', Probability: 0.850), Infix ('object', Probability: 0.915), Suffix ('reference', Probability: 0.721). The semantic similarity between tokens of description and method name: 'set': 'sets' (0.850), 'object': 'object' (0.915), 'Reference': 'reference' (0.721). The predicted method name by base LLM: setObjectValueReference which has an edit distance score: 10 as compared to the actual method name: setObjectReference.
+Suggest a Java method name according to the given functional description
+Input Functional Description: "sets the structured type value that this ref object references to the given instance of object"
