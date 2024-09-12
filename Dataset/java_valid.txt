@@ -30,7 +30,7 @@ fire accessible property change events when the state of the toggle button chang
 adds the specified item listener to receive item events from this check box   |||   add item listener
 determines whether the state of this check box menu item is " on " or " off "   |||   get state
 returns a string representing the state of this choice menu   |||   param string
-removes all items from the choice menu   |||   remove all
+removes all items from the choice menu   |||   remove all 
 sets the selected item in this choice menu to be the item whose name is equal to the specified string   |||   select
 returns the alpha component in the range 0 - 255   |||   get alpha
 returns the blue component in the range 0 - 255 in the default srgb space   |||   get blue
