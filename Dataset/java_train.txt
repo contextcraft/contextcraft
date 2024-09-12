@@ -27,7 +27,7 @@ returns the applet ' s context   _   get applet context
 gets the url of the document in which the applet is embedded   _   get document base
 determines if the applet is active   _   is active
 starts playing this audio clip in a loop   _   loop
-stops playing this audio clip   _   stop
+stops playing this audio clip   _   stop 
 adds a listener to receive adjustment events when the value of the adjustable object changes   _   add adjustment listener
 gets the block value increment for the adjustable object   _   get block increment
 gets the maximum value of the adjustable object   _   get maximum
