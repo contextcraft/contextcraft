@@ -21,7 +21,7 @@ parse the content described by the giving uniform resource identifier uri as xml
 returns the least key strictly greater than the given key , or null if there is no such key   |||   higher key
 creates a processing instruction node given the specified name and data strings   |||   create processing instruction
 determines the start of the next word for the given location   |||   get next word
-writes the string to the file as a sequence of bytes   |||   write bytes
+writes the string to the file as a sequence of bytes   |||   write bytes 
 returns the value of the url content - type header field   |||   get content type
 checks if the object reference is an instance of the given interface   |||   is a
 returns true if the image output stream implementation associated with this service provider requires the use of a cache file   |||   needs cache file
