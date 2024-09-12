@@ -1,5 +1,5 @@
 ![Banner](ContextCraft.PNG)
-# Replication package for paper : "Automated Generation of Context-Rich Prompts for LLM-based Method Name Suggestion"
+# Replication package for paper: "LLM-based Method Name Suggestion with Automatically Generated Context-Rich Prompts"
 
 # ContextCraft:
 ContextCraft is an automated algorithm to generating context-rich prompts for LLMs that generate the expected method names according to the prompts. For a given query (functional description), it retrieves a few best examples whose functional descriptions have
