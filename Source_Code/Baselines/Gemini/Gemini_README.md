@@ -1,4 +1,4 @@
-# Method Name Generation with Google Generative AI
+# Method Name Generation with Gemini
 
 This project generates method names or outputs based on a list of prompts stored in a CSV file. It uses Google Generative AI's `gemini-1.0-pro` model to generate responses for each prompt. The results are saved back to a new CSV file with the generated output.
 
