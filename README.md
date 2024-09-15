@@ -16,7 +16,7 @@ This section provides an overview of the repository structure, including dataset
 This directory contains three datasets: Java, Python and Private datasets. Each dataset contains three csv files (with two columns: Functional Description and Menthod Name) used for training, validation, and testing the models.
 ![Dataset](Dataset.PNG)
 
-# `Source_Code`
+# `ContextCraft Implementation`
 
 This directory includes various Jupyter notebooks and .py folder of context craft  that implement the core functionalities of the project.
 # Class Hierarchy
