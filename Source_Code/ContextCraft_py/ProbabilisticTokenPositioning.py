@@ -6,7 +6,7 @@ import inflect
 
 nltk.download('averaged_perceptron_tagger')
 nltk.download('wordnet')
-
+# class for PTP part
 class ProbabilisticTokenPositioning:
     def __init__(self):
         self.lemmatizer = WordNetLemmatizer()
