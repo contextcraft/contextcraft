@@ -1,0 +1,18 @@
+# For Hugging Face models like CodeBERT, GraphCodeBERT, RoBERTa
+transformers==4.30.2
+
+# For SentenceTransformer models like All-mpnet-base-v2
+sentence-transformers==2.2.2
+
+# For OpenAI API (used with text-embedding-ada-003)
+openai==0.27.0
+
+# For similarity calculations and other mathematical operations
+numpy==1.23.5
+scipy==1.10.0
+
+# For working with CSV files
+pandas==2.0.3
+
+# For PyTorch, which is the backend for the models
+torch==2.0.1
