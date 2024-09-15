@@ -11,13 +11,9 @@ This section provides an overview of the repository structure, including dataset
 ![Directory](Directory_Main2.PNG)
 
 # `Dataset`
+
+This directory contains three datasets: Java, Python and Private datasets. Each dataset contains three csv files (with two columns: Functional Description and Menthod Name) used for training, validation, and testing the models.
 ![Dataset](Dataset.PNG)
-This directory contains the dataset files used for training, validation, and testing the models.
-
-- **`java_test.txt`**: Contains functional descriptions and corresponding method names used for testing the model's performance.
-- **`java_train.txt`**: Contains functional descriptions and corresponding method names used to train the model.
-- **`java_valid.txt`**: Contains functional descriptions and corresponding method names used to validate the model during training.
-
 # `Evaluation`
 
 This directory holds evaluation results and metrics used to assess the performance of the models.
