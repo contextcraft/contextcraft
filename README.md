@@ -8,7 +8,7 @@ the evaluation results of the LLM on the selected examples. All such outputs (to
 ## Directory Structure
 
 This section provides an overview of the repository structure, including datasets, evaluation results, and source code.
-![Directory](Directory.PNG)
+![Directory](Directory1.PNG)
 
 # `Dataset`
 
