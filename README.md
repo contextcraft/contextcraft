@@ -7,7 +7,7 @@ the greatest similarity with the query. From the examples, it identifies tokens 
 the evaluation results of the LLM on the selected examples. All such outputs (tokens with probabilities and position information, pivot words accompanied by associated name tokens and similarity scores, and evaluation results) together with the query and the selected examples are then filled in a predefined prompt template, resulting in a context-rich prompt..
 ## Directory Structure
 
-This section provides an overview of the repository structure, including datasets, evaluation results, and source code.
+This section provides an overview of the repository structure, including datasets, Extra Material of Papar, Source Code of Evaluated Models (RNN-Copy-Attn, CodeBERT, UniXcoder, ChatGPT, Gemini and Llama) and Generated Context-Rich Prompts to reproduce results.
 ![Directory](Directory1.PNG)
 
 # `Dataset`
