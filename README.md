@@ -17,8 +17,7 @@ This directory contains three datasets: Java, Python and Private datasets. Each 
 ![Dataset](Dataset.PNG)
 
 # `ContextCraft Implementation`
-
-This directory includes various Jupyter notebooks and .py folder of context craft  that implement the core functionalities of the project.
+The source code of ContextCraft is organized into Classes with .py extention, as shown in following class hiarachy diagram:
 # Class Hierarchy
 ![Directory](classes.PNG)
 ### ContextCraft
