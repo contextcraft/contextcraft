@@ -4,10 +4,11 @@
 # ContextCraft:
 ContextCraft is an automated algorithm to generating context-rich prompts for LLMs that generate the expected method names according to the prompts. For a given query (functional description), it retrieves a few best examples whose functional descriptions have
 the greatest similarity with the query. From the examples, it identifies tokens that are likely to appear in the final method name as well as their likely positions, picks up pivot words that are semantically related to tokens in the according method names, and specifies
-the evaluation results of the LLM on the selected examples. All such outputs (tokens with probabilities and position information, pivot words accompanied by associated name tokens and similarity scores, and evaluation results) together with the query and the selected examples are then filled in a predefined prompt template, resulting in a context-rich prompt..
+the evaluation results of the LLM on the selected examples. All such outputs (tokens with probabilities and position information, pivot words accompanied by associated name tokens and similarity scores, and evaluation results) together with the query and the selected examples are then filled in a predefined prompt template, resulting in a context-rich prompt.
 ## Directory Structure
 
-This section provides an overview of the repository structure, including datasets, Extra Material of Papar, Source Code of Evaluated Models (RNN-Copy-Attn, CodeBERT, UniXcoder, ChatGPT, Gemini and Llama) and Generated Context-Rich Prompts to reproduce results.
+This section provides an overview of the repository structure, including datasets, Extra Material of Papar, Source Code of Evaluated Models ([ContextCraft](https://github.com/contextcraft/contextcraft/tree/main/Source_Code/ContextCraft_py), [RNN-Copy-Attn](https://github.com/contextcraft/contextcraft/blob/main/Source_Code/RNN_Copy_Attn/RNN_README.md), [CodeBERT](https://github.com/contextcraft/contextcraft/blob/main/Source_Code/CodeBERT/CodeBERT_README.md), [UniXcoder](https://github.com/contextcraft/contextcraft/blob/main/Source_Code/UniXcoder/UniXcoder_README.md), [ChatGPT](https://github.com/contextcraft/contextcraft/blob/main/Source_Code/ChatGPT/ChatGPT_README.md), [Gemini](https://github.com/contextcraft/contextcraft/blob/main/Source_Code/Gemini/Gemini_README.md) and [Llama](https://github.com/contextcraft/contextcraft/blob/main/Source_Code/Llama3/Llama3_README.md)) and Generated Context-Rich Prompts to reproduce results.
+
 ![Directory](Directory1.PNG)
 
 # `Dataset`
