@@ -1,7 +1,7 @@
 import torch
 from transformers import BertModel, BertTokenizer
 from scipy.spatial.distance import cosine
-
+# class for PWI to identify pivot word identification
 class PivotWordIdentification:
     def __init__(self):
         self.tokenizer = BertTokenizer.from_pretrained('bert-base-uncased')
