@@ -2,8 +2,8 @@ import torch
 from transformers import BertModel, BertTokenizer
 from scipy.spatial.distance import cosine
 import pandas as pd
-
-class BestExample:
+# BestExample class
+class BestExample: 
     def __init__(self, csv_file_path):
         # Load CSV file
         self.df = pd.read_csv(csv_file_path)
