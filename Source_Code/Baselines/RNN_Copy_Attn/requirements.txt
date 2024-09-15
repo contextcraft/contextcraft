@@ -1,4 +1,0 @@
-tensorflow==2.11
-tensorflow-text>=2.11
-einops
-matplotlib
