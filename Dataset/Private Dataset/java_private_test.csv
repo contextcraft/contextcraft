@@ -1,5 +1,5 @@
 Method Name,Functional Description
-generateTimeTable,"Automatically generate a complete timetable based on predefined course schedules, teacher availability, and room allocations."
+generateTimeTable,"Generate a complete timetable based on predefined course schedules, teacher availability, and room allocations."
 assignCourseToTimeSlot,"Schedule a specific course in a time slot without conflicts involving the teacher, room, or other courses."
 checkConflicts,"Identify and avoid scheduling conflicts between courses, teachers, rooms, or time slots."
 optimizeTimeTable,"Optimize the current timetable by applying techniques to minimize conflicts, balance workloads, and improve resource utilization."
