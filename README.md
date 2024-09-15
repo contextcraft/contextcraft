@@ -11,7 +11,7 @@ This section provides an overview of the repository structure, including dataset
 ![Directory](Directory_Main2.PNG)
 
 # `Dataset`
-
+![Dataset](Dataset.PNG)
 This directory contains the dataset files used for training, validation, and testing the models.
 
 - **`java_test.txt`**: Contains functional descriptions and corresponding method names used for testing the model's performance.
