@@ -7,7 +7,33 @@ the greatest similarity with the query. From the examples, it identifies tokens 
 the evaluation results of the LLM on the selected examples. All such outputs (tokens with probabilities and position information, pivot words accompanied by associated name tokens and similarity scores, and evaluation results) together with the query and the selected examples are then filled in a predefined prompt template, resulting in a context-rich prompt.
 ## Directory Structure
 
-This section provides an overview of the repository structure, including datasets, Extra Material of Papar, Source Code of Evaluated Models ([ContextCraft](https://github.com/contextcraft/contextcraft/tree/main/Source_Code/ContextCraft_py), [RNN-Copy-Attn](https://github.com/contextcraft/contextcraft/blob/main/Source_Code/RNN_Copy_Attn/RNN_README.md), [CodeBERT](https://github.com/contextcraft/contextcraft/blob/main/Source_Code/CodeBERT/CodeBERT_README.md), [UniXcoder](https://github.com/contextcraft/contextcraft/blob/main/Source_Code/UniXcoder/UniXcoder_README.md), [ChatGPT](https://github.com/contextcraft/contextcraft/blob/main/Source_Code/ChatGPT/ChatGPT_README.md), [Gemini](https://github.com/contextcraft/contextcraft/blob/main/Source_Code/Gemini/Gemini_README.md) and [Llama](https://github.com/contextcraft/contextcraft/blob/main/Source_Code/Llama3/Llama3_README.md)) and Generated Context-Rich Prompts to reproduce results.
+This section provides an overview of the repository structure, including datasets, supplementary materials from the paper, source code for the evaluated models, and generated prompts to facilitate the reproduction of results.
+
+## Reproducing Results
+
+To reproduce the results, the source code for the following models is available. Click on each model to access its corresponding README file for implementation details:
+
+- [ContextCraft](https://github.com/contextcraft/contextcraft/tree/main/Source_Code/ContextCraft_py)
+- [RNN-Copy-Attn](https://github.com/contextcraft/contextcraft/blob/main/Source_Code/RNN_Copy_Attn/RNN_README.md)
+- [CodeBERT](https://github.com/contextcraft/contextcraft/blob/main/Source_Code/CodeBERT/CodeBERT_README.md)
+- [UniXcoder](https://github.com/contextcraft/contextcraft/blob/main/Source_Code/UniXcoder/UniXcoder_README.md)
+- [ChatGPT](https://github.com/contextcraft/contextcraft/blob/main/Source_Code/ChatGPT/ChatGPT_README.md)
+- [Gemini](https://github.com/contextcraft/contextcraft/blob/main/Source_Code/Gemini/Gemini_README.md)
+- [Llama](https://github.com/contextcraft/contextcraft/blob/main/Source_Code/Llama3/Llama3_README.md)
+
+For ease of reproduction, the generated prompts, along with the discussed settings, are provided in the "Generated Context-Rich Prompts" folder. These prompts include:
+
+1. `java_test_Context_Rich_Prompt.csv`
+2. `java_test_FewShot_Prompt.csv`
+3. `java_test_Context_Rich_Without_PTP_Prompt.csv`
+4. `java_test_Context_Rich_Without_PWI_Prompt.csv`
+5. `java_test_Context_Rich_Without_LFM_Prompt.csv`
+6. `python_test_Context_Rich_Prompt.csv`
+7. `python_test_FewShot_Prompt.csv`
+8. `python_test_Context_Rich_Without_PTP_Prompt.csv`
+9. `python_test_Context_Rich_Without_PWI_Prompt.csv`
+10. `python_test_Context_Rich_Without_LFM_Prompt.csv`
+
 
 ![Directory](Directory1.PNG)
 
