@@ -8,7 +8,11 @@ the evaluation results of the LLM on the selected examples. All such outputs (to
 ## Directory Structure
 
 This section provides an overview of the repository structure, including datasets, supplementary materials from the paper, source code for the evaluated models, and generated prompts to facilitate the reproduction of results.
+![Directory](Directory1.PNG)
+## `Dataset`
 
+This directory contains three datasets: Java, Python and Private datasets. Each dataset contains three csv files (with two columns: Functional Description and Menthod Name) used for training, validation, and testing the models.
+![Dataset](Dataset.PNG)
 ## Reproducing Results
 
 To reproduce the results, the source code for the following models is available. Click on each model to access its corresponding README file for implementation details:
@@ -35,16 +39,9 @@ For ease of reproduction, the generated prompts, along with the discussed settin
 10. `python_test_Context_Rich_Without_LFM_Prompt.csv`
 
 
-![Directory](Directory1.PNG)
-
-# `Dataset`
-
-This directory contains three datasets: Java, Python and Private datasets. Each dataset contains three csv files (with two columns: Functional Description and Menthod Name) used for training, validation, and testing the models.
-![Dataset](Dataset.PNG)
-
-# `ContextCraft Implementation`
+## `ContextCraft Implementation`
 The source code of ContextCraft is organized into Classes with .py extention, as shown in following class hiarachy diagram:
-# Class Hierarchy
+### Class Hierarchy
 ![Directory](classes.PNG)
 ### ContextCraft
 
