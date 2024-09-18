@@ -11,7 +11,7 @@ This section provides an overview of the repository structure, including dataset
 ![Directory](Directory1.PNG)
 ## `Dataset`
 
-This directory contains three datasets: Java, Python and Private datasets. Each dataset contains three csv files (with two columns: Functional Description and Menthod Name) used for training, validation, and testing the models.
+This directory contains three datasets: Java, Python and Private datasets. Java and Python datasets contain three csv files (with two columns: Functional Description and Menthod Name) used for training, validation, and testing the models.
 ![Dataset](Dataset.PNG)
 ## Reproducing Results
 
