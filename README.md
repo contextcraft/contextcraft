@@ -74,7 +74,7 @@ The source code of ContextCraft is organized into Classes with .py extention, as
 
 ### PivotWordIdentification
 
-**Purpose:** Uses BERT to find the best matching description token for method name tokens based on semantic similarity. Generates embeddings for comparison.
+**Purpose:** Uses embedding model to find the best matching description token for method name tokens based on semantic similarity. Generates embeddings for comparison.
 
 #### Methods:
 
@@ -95,12 +95,12 @@ The source code of ContextCraft is organized into Classes with .py extention, as
 
 ### BestExample
 
-**Purpose:** Finds the top 10 semantically similar functional descriptions from a CSV file by comparing each description to a given input description using a BERT-based model.
+**Purpose:** Finds the top 10 semantically similar functional descriptions from a CSV file by comparing each description to a given input description using discussed models (Section 3.5 RQ2: Impact of Embedding Models on Performance).
 
 #### Methods:
 
 - `__init__(csv_file_path)`: Initializes BestExample with the path to the CSV file and reads it into a DataFrame.
-- `get_sentence_embedding(text)`: Generates a sentence-level embedding for the input text using BERT.
+- `get_sentence_embedding(text)`: Generates a sentence-level embedding for the input text using embedding model.
 - `find_top_n_similar_descriptions(input_description, n=10)`: Finds the top n semantically similar functional descriptions by computing the cosine similarity between the input description and descriptions in the CSV file. Returns the most similar descriptions with their method names.
 
 ### Implementation Workflow
