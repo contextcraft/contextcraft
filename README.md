@@ -15,7 +15,7 @@ This directory contains three datasets: Java, Python and Private datasets. Java 
 ![Dataset](Dataset.PNG)
 ## Reproducing Results
 
-To reproduce the results, the source code for the following models is available. Click on each model to access its corresponding README file for implementation details:
+To reproduce the results, the source code for the evaluated models is available. Click on each model to access its corresponding README file for implementation details:
 
 - [ContextCraft](https://github.com/contextcraft/contextcraft/tree/main/Source_Code/ContextCraft_py)
 - [RNN-Copy-Attn](https://github.com/contextcraft/contextcraft/blob/main/Source_Code/RNN_Copy_Attn/RNN_README.md)
@@ -25,9 +25,9 @@ To reproduce the results, the source code for the following models is available.
 - [Gemini](https://github.com/contextcraft/contextcraft/blob/main/Source_Code/Gemini/Gemini_README.md)
 - [Llama](https://github.com/contextcraft/contextcraft/blob/main/Source_Code/Llama3/Llama3_README.md)
 
-For ease of reproduction, the generated prompts, along with the discussed settings, are provided in the "Generated Context-Rich Prompts" folder. These prompts include:
+For ease of reproduction, the generated prompts, along with the discussed settings (Section: 3.6 RQ3: Effect of Individual Components and 3.7 RQ4: Working with Various LLMs) , are provided in the "Generated Context-Rich Prompts" folder. These prompts include:
 
-1. `java_test_Context_Rich_Prompt.csv`
+1. `java_test_Context_Rich_Prompt.csv`:
 2. `java_test_FewShot_Prompt.csv`
 3. `java_test_Context_Rich_Without_PTP_Prompt.csv`
 4. `java_test_Context_Rich_Without_PWI_Prompt.csv`
@@ -39,7 +39,7 @@ For ease of reproduction, the generated prompts, along with the discussed settin
 10. `python_test_Context_Rich_Without_LFM_Prompt.csv`
 
 
-## `ContextCraft Implementation`
+## `ContextCraft Algorithm Implementation`
 The source code of ContextCraft is organized into Classes with .py extention, as shown in following class hiarachy diagram:
 ### Class Hierarchy
 ![Directory](classes.PNG)
@@ -78,8 +78,8 @@ The source code of ContextCraft is organized into Classes with .py extention, as
 
 #### Methods:
 
-- `__init__()`: Initializes the BERT tokenizer and model.
-- `get_token_embeddings(text)`: Generates BERT embeddings for each token in the input text.
+- `__init__()`: Initializes the text-embedding-ada-003 model.
+- `get_token_embeddings(text)`: Generates  embeddings for each token in the input text.
 - `find_best_description_tokens(method_name, description)`: Finds the best matching description token for each method name token by comparing embeddings using cosine similarity.
 
 ### LLMBasedFeedback
@@ -88,7 +88,7 @@ The source code of ContextCraft is organized into Classes with .py extention, as
 
 #### Methods:
 
-- `__init__(api_client)`: Initializes LLMBasedFeedback with the LLM API client.
+- `__init__(api_client)`: Initializes LLMBasedFeedback with the LLM API client (ChatGPT-4o).
 - `predict_method_name(functional_description)`: Uses the LLM API to predict method names from functional descriptions.
 - `compare_with_actual(predicted_name, actual_name)`: Compares predicted method names with actual names using edit distance to determine similarity.
 - `generate_feedback(predicted_name, actual_name)`: Generates a feedback statement comparing the predicted and actual method names, including the edit distance score.
@@ -113,7 +113,7 @@ The source code of ContextCraft is organized into Classes with .py extention, as
 #### CSV File Processing:
 
 1. ContextCraft uses ProbabilisticTokenPositioning to calculate probabilities for prefix, infix, and suffix.
-2. Uses PivotWordIdentification to find semantic pivot words based on BERT embeddings.
+2. Uses PivotWordIdentification to find semantic pivot words based on text-embedding-ada-003 embeddings.
 3. Uses LLMBasedFeedback to predict method names and generate feedback.
 4. Formats and saves processed data with examples.
 
