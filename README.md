@@ -9,6 +9,48 @@ the evaluation results of the LLM on the selected examples. All such outputs (to
 
 This section provides an overview of the repository structure, including datasets, supplementary materials from the paper, source code for the evaluated models, and generated prompts to facilitate the reproduction of results.
 ![Directory](Directory1.PNG)
+
+### **Explanation of Key Classes and Methods:**
+
+1. **BestExample**:
+   - **Purpose**: This class is responsible for selecting the best functional descriptions from a CSV file based on semantic similarity to the input description.
+   - **Key Methods**:
+     - `find_top_n_similar_descriptions`: This method retrieves the top N similar descriptions from the CSV based on cosine similarity.
+
+2. **ContextualInformationExtraction**:
+   - **Purpose**: This class extracts contextual information (entities, actions, and context scope) from functional descriptions.
+   - **Key Methods**:
+     - `extract_entities`: Extracts entities (typically nouns).
+     - `extract_actions`: Extracts actions (typically verbs).
+     - `extract_context_scope`: Generates a context scope from the extracted entities and actions.
+
+3. **PotentialNameEvaluation**:
+   - **Purpose**: This class evaluates method names by calculating their edit distance and semantic similarity against the actual method name.
+   - **Key Methods**:
+     - `evaluate_method_names`: This method evaluates and ranks generated method names by computing their similarity to the actual method name.
+
+4. **GenerativeInsightReasoning**:
+   - **Purpose**: This class generates insights and reasoning behind each potential method name based on entities, actions, and context.
+   - **Key Methods**:
+     - `generate_reasoning_for_method`: Provides reasoning for a single method name.
+     - `generate_all_insights`: Provides reasoning for all ranked method names.
+
+5. **LangInsightCraft**:
+   - **Purpose**: This class orchestrates all the steps involved in the process of generating method names. It combines the functionalities of all other classes to produce a context-enriched prompt for method name generation.
+   - **Key Methods**:
+     - `create_context_enriched_prompt`: This method creates the final context-enriched prompt for passing to the LLM for generating method names.
+
+### **How It Works:**
+1. **BestExample** class finds the most relevant examples from a CSV file based on semantic similarity to the input functional description.
+2. **ContextualInformationExtraction** extracts the entities, actions, and context scope from these examples.
+3. **PotentialNameEvaluation** evaluates and ranks the potential method names based on their edit distance and semantic similarity to the actual method name.
+4. **GenerativeInsightReasoning** provides reasoning behind each ranked method name.
+5. **LangInsightCraft** creates a context-enriched prompt using the outputs from all the classes and prepares it for use with a language model to generate method names.
+
+---
+
+This hierarchy ensures that each class has a specific role in the pipeline, and the workflow remains clean and modular. The **LangInsightCraft** class integrates the entire process, providing an easy-to-use interface for generating method names from functional descriptions.
+
 ## `Dataset`
 
 This directory contains three datasets: Java, Python and Private datasets. Java and Python datasets contain three csv files (with two columns: Functional Description and Menthod Name) used for training, validation, and testing the models.
